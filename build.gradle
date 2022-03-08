@@ -43,7 +43,7 @@ tasks.named('test') {
 // https://docs.gradle.org/current/samples/sample_jvm_multi_project_with_additional_test_types.html
 
 tasks.register("testLongRunning", Test) {
-    description = 'Runs long-running tests.'
+    description = "Runs the unit tests with @Tag(\"" + TAG_LONG_RUNNING + "\")."
     group = 'verification'
     useJUnitPlatform {
         includeTags TAG_LONG_RUNNING
@@ -55,7 +55,7 @@ tasks.register("testLongRunning", Test) {
 }
 
 tasks.register("integrationTest", Test) {
-    description = 'Runs integration tests.'
+    description = "Runs the integratin tests without @Tag(\"" + TAG_LONG_RUNNING + "\")."
     group = 'verification'
     useJUnitPlatform {
         excludeTags TAG_LONG_RUNNING
@@ -67,7 +67,7 @@ tasks.register("integrationTest", Test) {
 }
 
 tasks.register("integrationTestLongRunning", Test) {
-    description = 'Runs long-running integration tests.'
+    description = "Runs the integration tests with @Tag(\"" + TAG_LONG_RUNNING + "\")."
     group = 'verification'
     useJUnitPlatform {
         includeTags TAG_LONG_RUNNING
